@@ -13,7 +13,6 @@
 |         |      |       |         |       |
 |         |      |       |         |       |
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 ### Data Model / Schema
 
@@ -25,7 +24,6 @@
 | quantity    | Number | Quantity of the part    |
 | price       | Number | Price of the part       |
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 # API Endpoints
 
@@ -37,7 +35,6 @@
 | /parts/:id | PUT         | Update a part |
 | /parts     | DELETE      | Delete a part |
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 # Installation
 

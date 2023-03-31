@@ -1,5 +1,6 @@
 ## Fastener Inventory API 
-A CRUD app that uses the Sequelize ORM<br>
+A CRUD app that uses the Sequelize ORM.<br> At the moment still in the planning phase.
+But ultimately, the project will be a basic inventory management application for fasteners.
 <sub>(work-in-progress)</sub>
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

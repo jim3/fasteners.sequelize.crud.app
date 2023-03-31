@@ -25,8 +25,7 @@ testConnection();
 const Fasteners = sequelize.define("Fastener", {
     // Model attributes
     partnumber: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.STRING,
     },
     description: {
         type: DataTypes.STRING,

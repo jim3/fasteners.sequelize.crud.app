@@ -1,5 +1,6 @@
 ## Fastener Inventory API 
-<sub>(work-in-progress)</sub>
+<sub>(work-in-progress)</sub><br>
+A CRUD app that uses the Sequelize ORM
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 

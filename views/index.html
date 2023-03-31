@@ -40,10 +40,10 @@
     </div>
 
     <script>
-      const exerciseForm = document.getElementById("fastener-form");
+      const fastenerForm = document.getElementById("fastener-form");
       exerciseForm.addEventListener("submit", () => {
         const userId = document.getElementById("uid").value;
-        exerciseForm.action = `/api/users/${fastenerId}/exercises`;
+        exerciseForm.action = `/api/users/${fastenerId}/fasteners`;
         exerciseForm.submit();
       });
     </script>

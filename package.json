@@ -1,13 +1,13 @@
 {
     "name": "fasteners.crud.seq",
     "version": "1.0.0",
-    "description": "",
+    "description": "restful api inventory app",
     "main": "index.js",
     "scripts": {
         "start": "node index.js"
     },
     "keywords": [],
-    "author": "",
+    "author": "jim3",
     "license": "ISC",
         "dependencies": {
         "cors": "^2.8.5",

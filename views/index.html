@@ -41,10 +41,10 @@
 
     <script>
       const fastenerForm = document.getElementById("fastener-form");
-      exerciseForm.addEventListener("submit", () => {
+      fastenerForm.addEventListener("submit", () => {
         const userId = document.getElementById("uid").value;
-        exerciseForm.action = `/api/users/${fastenerId}/fasteners`;
-        exerciseForm.submit();
+        fastenerForm.action = `/api/users/${fastenerId}/fasteners`;
+        fastenerForm.submit();
       });
     </script>
   </body>

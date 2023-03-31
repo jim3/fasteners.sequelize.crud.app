@@ -1,4 +1,4 @@
-## Fastener Inventory API
+## RESTful API Inventory App for Fasteners
 
 A CRUD app that uses the Sequelize ORM.<br> 
 At the moment the project is still in the planning phase.<br>

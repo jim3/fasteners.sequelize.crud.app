@@ -1,4 +1,4 @@
-## Fastener Inventory API (work-in-progress)
+## Fastener Inventory API <sub>(work-in-progress)</sub>
 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 

@@ -5,7 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 // Set up sequelize connection to the database
 const sequelize = new Sequelize({
     dialect: "sqlite",
-    storage: "/home/j3/Code/Experimental-Projects/Fasteners/mydb.db",
+    storage: process.env.DB_PATH,
 });
 
 // Test the connection

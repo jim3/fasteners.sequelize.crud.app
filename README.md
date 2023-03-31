@@ -1,10 +1,11 @@
-## Fastener Inventory API 
+## Fastener Inventory API
+
 A CRUD app that uses the Sequelize ORM.<br> 
 At the moment the project is still in the planning phase.<br>
-But ultimately, it will be a basic inventory management application for fasteners.
+But ultimately, it will be a basic inventory management application for fasteners.<br>
 <sub>(work-in-progress)</sub>
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+- -------------
 
 ### Category of Fasteners
 
@@ -29,7 +30,7 @@ But ultimately, it will be a basic inventory management application for fastener
 | price       | Number | Price of the part       |
 
 
-# API Endpoints
+### API Endpoints
 
 | Endpoint   | HTTP Method | Description   |
 | :--------- | :---------- | :------------ |
@@ -40,7 +41,7 @@ But ultimately, it will be a basic inventory management application for fastener
 | /parts     | DELETE      | Delete a part |
 
 
-# Installation
+#### Installation
 
 -   Clone the repo
 -   Run `npm install`

@@ -1,51 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Fastener Inventory App</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
+    <head>
+        <title>Fastener Inventory App</title>
+        <link rel="stylesheet" href="../public/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 style="text-align: center">Fastener Inventory</h1>
+            <fieldset>
+                <form>
+                    <label for="category">Fastener Categories:</label>
+                    <select id="category-dropdown" name="category">
+                        <option value="" disabled selected>Select category</option>
+                        <option value="screws">Screws</option>
+                        <option value="nuts">Nuts</option>
+                        <option value="bolts">Bolts</option>
+                        <option value="washers">Washers</option>
+                    </select>
+                </form>
+            </fieldset>
 
-  <body>
-    <div class="container">
-      <h1>Fastener Inventory App</h1>
-      <form action="/api/fasteners" method="post">
-        <h3>Create a New Fastener</h3>
-        <input
-          id="pname"
-          type="text"
-          name="partnumber"
-          placeholder="partnumber"
-        />
-        <input type="submit" value="Submit" />
-      </form>
+            <p>Some space between forms</p>
 
-      <form id="fastener-form" method="post">
-        <h3>Add a fastener to the database</h3>
-        <input
-          id="pid"
-          type="text"
-          name=":fastenerId"
-          placeholder=":fastenerId"
-        />
-        <input
-          id="pname"
-          type="text"
-          name="partname"
-          placeholder="name of part"
-        />
-        <input id="pr" type="text" name="price" placeholder="price ($)" />
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
-
-    <script>
-      const fastenerForm = document.getElementById("fastener-form");
-      fastenerForm.addEventListener("submit", () => {
-        const userId = document.getElementById("uid").value;
-        fastenerForm.action = `/api/users/${fastenerId}/fasteners`;
-        fastenerForm.submit();
-      });
-    </script>
-  </body>
+            <fieldset>
+                <form>
+                    <label for="fastener-type">Fastener Type:</label>
+                    <select id="fastener-type" name="fastener-type">
+                        <option value="" disabled selected>Select fastener type</option>
+                    </select>
+                </form>
+            </fieldset>
+        </div>
+        <!-- `cd ./public/` -->
+        <script type="module" src="../public/fastenerDropdown.js"></script>
+    </body>
 </html>

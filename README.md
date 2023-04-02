@@ -1,9 +1,9 @@
 ## RESTful API Inventory App for Fasteners
 
-Currently, a basic outline of a RESTful API to keep inventory of parts.
+Currently, a basic outline of a RESTful API to keep an inventory of parts.
 
 It is a CRUD app that uses the Sequelize ORM. Ultimately, it will be a basic inventory management application for fasteners, that
-is the long-term goal. 
+is the *long-term* goal.<br>
 <sub>(work-in-progress)</sub>
 
 - -------------

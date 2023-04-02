@@ -5,7 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 // Set up sequelize connection to the database
 const sequelize = new Sequelize({
     dialect: "sqlite",
-    storage: process.env.DB_PATH,
+    storage: "parts.db",
 });
 
 // Test the connection

@@ -6,7 +6,7 @@ It is a CRUD app that uses the Sequelize ORM. Ultimately, it will be a basic inv
 is the *long-term* goal.<br>
 
 Slowly, I will build the frontend using HTML, CSS and JavaScript, no plans to use a frontend framework...too much to learn already. 🙃
-<sub>(work-in-progress)</sub>
+<br><sub>(work-in-progress)</sub>
 
 - -------------
 

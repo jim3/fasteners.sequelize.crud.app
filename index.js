@@ -1,40 +1,27 @@
 const express = require("express");
 const app = express();
-const { Sequelize } = require("sequelize");
-const cors = require("cors");
-require("dotenv").config();
 
-app.use(cors());
+// -=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=--=-=-=-=-=- //
+
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// -=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=--=-=-=-=-=- //
-// Set up sequelize connection to the database
-const sequelize = new Sequelize({
-    dialect: "sqlite",
-    storage: "~/mydb.db", // path to sqlite db
-});
-
-// Test the connection
-const testConnection = async () => {
-    try {
-        await sequelize.authenticate();
-        console.log("Connection has been established successfully.");
-    } catch (error) {
-        console.error("Unable to connect to the database:", error);
-    }
-};
-// -=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=--=-=-=-=-=- //
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
 
-app.use("/api/fasteners", require("./routes/fastenerRoutes"));
+app.use("/api/fasteners", require("./routes/fastenerRoute"));
 
 // -=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=--=-=-=-=-=- //
-const port = 3000;
+
+const db = require("./models/fastenerModel");
+
+db.sequelize.sync().then(() => {
+    console.log("Synced db.");
+});
+
+const port = 4000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });

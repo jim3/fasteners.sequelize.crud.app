@@ -4,6 +4,8 @@ Currently, a basic outline of a RESTful API to keep an inventory of parts.
 
 It is a CRUD app that uses the Sequelize ORM. Ultimately, it will be a basic inventory management application for fasteners, that
 is the *long-term* goal.<br>
+
+Slowly, I will build the frontend using HTML, CSS and JavaScript, no plans to use a frontend framework...too much to learn already. 🫥
 <sub>(work-in-progress)</sub>
 
 - -------------

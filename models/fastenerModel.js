@@ -23,19 +23,27 @@ testConnection();
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-// Model
-const PartName = sequelize.define("PartName", {
-    partname: {
+// Parts Model
+const Parts = sequelize.define("Parts", {
+    partType: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    partName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    quantity: {
+        type: DataTypes.INTEGER,
+    },
+
+    price: {
+        type: DataTypes.DECIMAL(10, 2),
     },
 });
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-// Export the model and the sequelize connection
-const db = { PartName, sequelize, Sequelize };
-
+// Export the model and sequelize connection
+const db = { Parts, sequelize, Sequelize };
 module.exports = db;
-
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

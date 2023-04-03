@@ -1,50 +1,34 @@
 ## RESTful API Inventory App for Fasteners
 
-Currently, a basic outline of a RESTful API to keep an inventory of parts.
+A Node/Express web app that uses the Sequelize ORM to interact with a SQLite3 database. Front-end is built with HTML, CSS and JavaScript.
 
-It is a CRUD app that uses the Sequelize ORM. Ultimately, it will be a basic inventory management application for fasteners, that
-is the *long-term* goal.<br>
+### Description
 
-Slowly, I will build the frontend using HTML, CSS and JavaScript with a focus on HTML forms. No plans to use a frontend framework...too much to learn already. 🙃
-<br><sub>(work-in-progress)</sub>
+This is a work-in-progress project to create a RESTful API for a basic inventory management application for fasteners. The app is built with Node.js, Express, and Sequelize. The database is SQLite3.<br>
 
-- -------------
+A demo app will be deployed on my Linode VPS at: [https://jimmy3.xyz/](https://jimmy3.xyz/).
 
-### Category of Fasteners
-
-| Screws  | Nuts | Bolts | Washers | Other |
-| ------- | ---- | ----- | ------- | ----- |
-| Wood    | Hex  | Hex   | Flat    |       |
-| Machine |      |       | Lock    |       |
-| Sheet   |      |       | Washer  |       |
-| Socket  |      |       |         |       |
-|         |      |       |         |       |
-|         |      |       |         |       |
-
-
-### Data Model / Schema
-
-| Field       | Type   | Description             |
-| :---------- | :----- | :---------------------- |
-| partNumber  | String | Part number of the part |
-| name        | String | Name of the part        |
-| description | String | Description of the part |
-| quantity    | Number | Quantity of the part    |
-| price       | Number | Price of the part       |
-
+---
 
 ### API Endpoints
 
-| Endpoint   | HTTP Method | Description   |
-| :--------- | :---------- | :------------ |
-| /parts     | GET         | Get all parts |
-| /parts/:id | GET         | Get a part    |
-| /parts     | POST        | Create a part |
-| /parts/:id | PUT         | Update a part |
-| /parts     | DELETE      | Delete a part |
+| Method | Endpoint | Description   |
+| ------ | -------- | ------------- |
+| GET    | /        | Get all parts |
+| GET    | /:id     | Get one part  |
+| POST   | /        | Add a part    |
+| PUT    | /:id     | Update a part |
+| DELETE | /:id     | Delete a part |
 
+---
 
 #### Installation
 
+-   Install Node.js
+-   Create your database (e.g. SQLite3, MySQL, Postgres, etc.)
 -   Clone the repo
 -   Run `npm install`
+-   Run `node index.js`
+-   Navigate to `localhost:3000`
+
+---

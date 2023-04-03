@@ -7,30 +7,130 @@
     <body>
         <div class="container">
             <h1 style="text-align: center">Fastener Inventory</h1>
-            <fieldset>
-                <form>
-                    <label for="category">Fastener Categories:</label>
-                    <select id="category-dropdown" name="category">
-                        <option value="" disabled selected>Select category</option>
-                        <option value="screws">Screws</option>
-                        <option value="nuts">Nuts</option>
-                        <option value="bolts">Bolts</option>
-                        <option value="washers">Washers</option>
-                    </select>
-                </form>
-            </fieldset>
 
-            <p>Some space between forms</p>
+            <form id="myform" action="/" method="POST">
+                <!--  - - - - - - - - - - - - - - - - - - - - - - -->
+                <label for="category">Fastener Categories:</label>
+                <select id="category-dropdown" name="category">
+                    <option value="" disabled selected>Select category</option>
+                    <option value="screws">Screws</option>
+                    <option value="nuts">Nuts</option>
+                    <option value="bolts">Bolts</option>
+                    <option value="washers">Washers</option>
+                </select>
 
-            <fieldset>
-                <form>
-                    <label for="fastener-type">Fastener Type:</label>
-                    <select id="fastener-type" name="fastener-type">
-                        <option value="" disabled selected>Select fastener type</option>
-                    </select>
-                </form>
-            </fieldset>
+                <p><!-- Some space between select/input elements --></p>
+
+                <label for="fastenertype">Fastener Type:</label>
+                <select id="fastenertype" name="fastenertype">
+                    <option value="" disabled selected>Select fastener type</option>
+                </select>
+
+                <p><!-- Some space between select/input elements --></p>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="1000" />
+
+                <p><!-- Some space between select/input elements --></p>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" min="0.01" max="1000" step="0.01" />
+
+                <!-- Submit -->
+                <input type="submit" value="Submit" />
+                <!--  - - - - - - - - - - - - - - - - - - - - - - -->
+            </form>
         </div>
-        <script type="module" src="../public/fastenerDropdown.js"></script>
+        <script>
+            // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+            const categoryDropdown = document.querySelector("#category-dropdown");
+            const fastenerDropdown = document.querySelector("#fastenertype");
+
+            const screwOptions = {
+                Wood: "wood",
+                Machine: "machine",
+                Roofing: "roofing",
+                Socket: "socket",
+            };
+            const nutOptions = {
+                Hex: "hex",
+                Flange: "flange",
+                Eye: "eye",
+                Lock: "lock",
+            };
+            const boltOptions = {
+                Hex: "hex",
+                Flange: "flange",
+                Eye: "eye",
+                Carriage: "carriage",
+            };
+            const washerOptions = {
+                Flat: "flat",
+                Lock: "lock",
+                Tooth: "tooth",
+            };
+
+            // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+            const updateFastenerOptions = (category) => {
+                fastenerDropdown.innerHTML = ""; // clear existing options then...
+                // create new options
+                let options;
+                switch (category) {
+                    case "screws":
+                        options = screwOptions;
+                        break;
+                    case "nuts":
+                        options = nutOptions;
+                        break;
+                    case "bolts":
+                        options = boltOptions;
+                        break;
+                    case "washers":
+                        options = washerOptions;
+                        break;
+                    default:
+                        options = {};
+                }
+
+                // add new options to the fastener dropdown
+                for (const [label, value] of Object.entries(options)) {
+                    const option = document.createElement("option");
+                    option.label = label;
+                    option.value = value;
+                    fastenerDropdown.appendChild(option);
+                }
+            };
+
+            // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+            // Event listener for category dropdown
+            categoryDropdown.addEventListener("change", () => {
+                const selectedCategory = categoryDropdown.value;
+                updateFastenerOptions(selectedCategory);
+            });
+
+            // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+            const partsForm = document.querySelector("#myform");
+            const API_URL = "http://localhost:3000/";
+
+            // Event listener for form submit
+            partsForm.addEventListener("submit", (e) => {
+                e.preventDefault(); // prevent page refresh on select/input submit 
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData);
+                console.log("log before fetch", data);
+
+                fetch(API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log("log after fetch", data);
+                    });
+            });
+        </script>
     </body>
 </html>

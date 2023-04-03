@@ -4,28 +4,29 @@ const db = require("../models/fastenerModel");
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-router.get("/", async (req, res) => {
-    try {
-        const fasteners = await db.PartName.findAll();
-        res.status(200).json({ success: true, data: fasteners });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ success: false, message: "Failed to get fasteners" });
-    }
+router.get("/", (req, res) => {
+    console.log("GET request received");
 });
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-router.post("/", async (req, res) => {
-    try {
-        const { partname } = req.body;
-        await db.PartName.create({ partname });
+router.post("/", (req, res) => {
+    console.log(req.body); // This is the object that is being sent from the client
+    let partType = req.body.category;
+    let partName = req.body.fastenertype;
+    let quantity = req.body.quantity;
+    let price = req.body.price;
 
-        res.status(201).json({ success: true, message: "Fastener created" });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ success: false, message: "Failed to create fastener" });
-    }
+    const responseObj = {
+        partType: partType,
+        partName: partName,
+        quantity: quantity,
+        price: price,
+    };
+
+    db.Parts.create(responseObj);
+    console.log("POST request received");
+    res.send("POST request received");
 });
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

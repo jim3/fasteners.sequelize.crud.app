@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
 
     db.Parts.create(responseObj);
     console.log("POST request received");
-    res.send("POST request received");
+     res.json(responseObj);
 });
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

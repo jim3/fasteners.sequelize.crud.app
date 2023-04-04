@@ -1,6 +1,3 @@
-// Forms.js :: Form handling for the Fastener Parts app
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
 // Selectors
 const categoryDropdown = document.querySelector("#category-dropdown");
 const fastenerDropdown = document.querySelector("#fastenertype");
@@ -72,7 +69,7 @@ const API_URL = "http://localhost:3000/";
 // Grab form data and send to server via fetch API
 partsForm.addEventListener("submit", (e) => {
     e.preventDefault(); // prevent page refresh
-    const formData = new FormData(e.target); // [https://xhr.spec.whatwg.org/#interface-formdata]
+    const formData = new FormData(e.target); 
     const data = Object.fromEntries(formData);
     console.log("log before fetch", data);
     fetch(API_URL, {

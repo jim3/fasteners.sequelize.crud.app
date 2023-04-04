@@ -10,37 +10,45 @@
 
             <form id="myform" action="/" method="POST">
                 <!--  - - - - - - - - - - - - - - - - - - - - - - -->
-                <label for="category">Fastener Categories:</label>
-                <select id="category-dropdown" name="category">
-                    <option value="" disabled selected>Select category</option>
-                    <option value="screws">Screws</option>
-                    <option value="nuts">Nuts</option>
-                    <option value="bolts">Bolts</option>
-                    <option value="washers">Washers</option>
-                </select>
+                <fieldset>
+                    <legend>Fastener Category</legend>
+                    <select id="category-dropdown" name="category">
+                        <option value="" disabled selected>Select category</option>
+                        <option value="screws">Screws</option>
+                        <option value="nuts">Nuts</option>
+                        <option value="bolts">Bolts</option>
+                        <option value="washers">Washers</option>
+                    </select>
+                </fieldset>
 
-                <p><!-- Some space between select/input elements --></p>
+                <fieldset>
+                    <legend>Type of Fastener</legend>
+                    <select id="fastenertype" name="fastenertype">
+                        <option value="" disabled selected>Select fastener type</option>
+                    </select>
+                </fieldset>
 
-                <label for="fastenertype">Fastener Type:</label>
-                <select id="fastenertype" name="fastenertype">
-                    <option value="" disabled selected>Select fastener type</option>
-                </select>
+                <fieldset>
+                    <legend>Quantity</legend>
+                    <input type="number" id="quantity" name="quantity" min="1" max="1000" />
+                </fieldset>
 
-                <p><!-- Some space between select/input elements --></p>
-
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="1" max="1000" />
-
-                <p><!-- Some space between select/input elements --></p>
-
-                <label for="price">Price:</label>
-                <input type="number" id="price" name="price" min="0.01" max="1000" step="0.01" />
+                <fieldset>
+                    <legend>Price</legend>
+                    <input type="number" id="price" name="price" min="0.01" max="1000" step="0.01" />
+                </fieldset>
 
                 <!-- Submit -->
                 <input type="submit" value="Submit" />
                 <!--  - - - - - - - - - - - - - - - - - - - - - - -->
             </form>
         </div>
+
+        <!-- Results will be displayed here -->
+        <div id="results">
+            <h2>Results</h2>
+        </div>
+
         <script>
             // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
             const categoryDropdown = document.querySelector("#category-dropdown");
@@ -102,19 +110,19 @@
             };
 
             // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
             // Event listener for category dropdown
             categoryDropdown.addEventListener("change", () => {
                 const selectedCategory = categoryDropdown.value;
                 updateFastenerOptions(selectedCategory);
             });
 
-            // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
             const partsForm = document.querySelector("#myform");
             const API_URL = "http://localhost:3000/";
 
             // Event listener for form submit
             partsForm.addEventListener("submit", (e) => {
-                e.preventDefault(); // prevent page refresh on select/input submit 
+                e.preventDefault(); // prevent page refresh on select/input submit
                 const formData = new FormData(e.target);
                 const data = Object.fromEntries(formData);
                 console.log("log before fetch", data);
@@ -128,7 +136,13 @@
                 })
                     .then((response) => response.json())
                     .then((data) => {
-                        console.log("log after fetch", data);
+                        for (const [key, value] of Object.entries(data)) {
+                            console.log(`${key}: ${value}`);
+                            // Print results to the page
+                            const newDiv = document.createElement("div");
+                            newDiv.innerHTML = `${key}: ${value}<br>`;
+                            document.getElementById("results").appendChild(newDiv);
+                        }
                     });
             });
         </script>

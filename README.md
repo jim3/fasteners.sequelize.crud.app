@@ -6,7 +6,6 @@ A Node/Express web app that uses the Sequelize ORM to interact with a SQLite3 da
 
 This is a work-in-progress project to create a RESTful API for a basic inventory management application for fasteners. The app is built with Node.js, Express, and Sequelize. The database is SQLite3.<br>
 
-You can check out a very crude demo at [https://jimmy3.xyz](https://jimmy3.xyz)
 
 ---
 
